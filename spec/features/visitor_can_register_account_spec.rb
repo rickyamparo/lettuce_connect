@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Account Registration' do
+feature 'Account Registration' do
   scenario "A visitor visits the home page and registers an account" do
     visit '/'
 
