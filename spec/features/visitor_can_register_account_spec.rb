@@ -7,7 +7,7 @@ feature 'Account Registration' do
     expect(page).to have_link("Register Account")
     click_on ("Register Account")
 
-    expect(current_path).to eq('/register')
+    expect(current_path).to eq('/users/new')
 
     fill_in "user[first_name]", with: "Rick"
     fill_in "user[last_name]", with: "Deckard"
