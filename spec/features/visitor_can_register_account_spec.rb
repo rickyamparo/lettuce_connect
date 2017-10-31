@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Account Registration' do
-  xscenario "A visitor visits the home page and registers an account" do
+  scenario "A visitor visits the home page and registers an account" do
     visit '/'
 
     expect(page).to have_link("Register Account")
