@@ -13,7 +13,6 @@ feature 'Account Registration' do
     fill_in "user[last_name]", with: "Deckard"
     fill_in "user[email]", with: "blade@runner.com"
     fill_in "user[password]", with: "replicants"
-    fill_in "user[password_confirmation]", with: "replicants"
 
     click_on "Submit"
 
