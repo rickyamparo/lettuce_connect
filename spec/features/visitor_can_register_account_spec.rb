@@ -19,7 +19,7 @@ feature 'Account Registration' do
 
     expect(current_path).to eq('/')
     expect(page).to have_link("Edit Profile")
-    expect(page).to have_link("Manage Connection")
+    expect(page).to have_link("Manage Connections")
     expect(page).to have_link("Logout")
     expect(page).to_not have_link("Login")
   end
