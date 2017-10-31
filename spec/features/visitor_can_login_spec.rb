@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Account Login' do
-  scenario 'A visitor visits the home page and logs into their account' do
+  xscenario 'A visitor visits the home page and logs into their account' do
     visit '/'
 
     expect(page).to have_link("Login")

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Account connections' do
-  scenario "A user can view all of their connections" do
+  xscenario "A user can view all of their connections" do
     visit '/connections'
 
     expect(page).to have_css('.table')
