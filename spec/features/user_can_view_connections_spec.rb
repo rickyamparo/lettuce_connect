@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 feature 'Account connections' do
-  xscenario "A user can view all of their connections" do
+  scenario "A user can view all of their connections" do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    
     visit '/connections'
 
     expect(page).to have_css('.table')
@@ -13,6 +16,7 @@ feature 'Account connections' do
         expect(page).to have_content("Twitter")
         expect(page).to have_content("LinkedIn")
       end
+
       expect(page).to have_content("fakegithub")
       expect(page).to have_content("faketwitter")
       expect(page).to have_content("fakelinkedin")
