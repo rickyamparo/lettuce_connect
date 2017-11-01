@@ -19,6 +19,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    if current_user != nil
+      current_user.update(user_params)
+      redirect_to root_path
+    else
+      render file: "/public/404"
+    end
+  end
+
 
   private
 
