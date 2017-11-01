@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 feature 'Edit Account and Business Card' do
-  xscenario "a user visits the edit account page and edits their account" do
+  scenario "a user visits the edit account page and edits their account" do
+    user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
     visit '/'
     expect(page).to have_content("Rick Deckard")
     expect(page).to have_content("blade@runner.com")
