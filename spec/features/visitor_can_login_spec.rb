@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 feature 'Account Login' do
-  xscenario 'A visitor visits the home page and logs into their account' do
+  scenario 'A visitor visits the home page and logs into their account' do
+    user = create(:user)
+
     visit '/'
 
     expect(page).to have_link("Login")
@@ -11,8 +13,8 @@ feature 'Account Login' do
 
     expect(current_path).to eq('/login')
 
-    fill_in "user[email]", with: "blade@runner.com"
-    fill_in "user[password]", with: "replicants"
+    fill_in "session[email]", with: "blade@runner.com"
+    fill_in "session[password]", with: "replicants"
 
     click_on ("Login")
 
