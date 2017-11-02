@@ -19,7 +19,7 @@ feature 'Account connections' do
     visit '/connections'
 
     expect(page).to have_css('.table')
-    save_and_open_page
+
     within ('.table') do
       expect(page).to have_css('.connection')
       within first('.connection') do
