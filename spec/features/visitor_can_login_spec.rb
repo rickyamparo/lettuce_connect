@@ -15,8 +15,8 @@ feature 'Account Login' do
 
     fill_in "session[email]", with: "blade@runner.com"
     fill_in "session[password]", with: "replicants"
-
-    click_on ("Login")
+    save_and_open_page
+    click_on ("Submit")
 
     expect(current_path).to eq('/')
     expect(page).to have_link("Logout")
