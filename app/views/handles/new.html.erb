@@ -1,0 +1,13 @@
+<div class="form">
+
+
+<%= form_for @user, @handle do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.select :handle_type_id, HandleType.all.collect { |c| [ c.title, c.id ] }, include_blank: false %>
+
+  <%= f.submit "Submit" %>
+<% end %>
+</div>

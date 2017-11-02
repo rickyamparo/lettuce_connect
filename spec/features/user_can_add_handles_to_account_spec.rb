@@ -11,9 +11,9 @@ feature 'Account handle addition' do
     click_on ("Submit")
 
     expect(current_path).to eq('/')
-    expect(page).to have_link("Add Handle"
+    expect(page).to have_link("Add Handle")
 
-    click_on "Add Handle")
+    click_on "Add Handle"
 
     expect(current_path).to eq('/users/1/handles/new')
 
