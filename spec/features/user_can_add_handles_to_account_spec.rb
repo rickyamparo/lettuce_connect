@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Account handle addition' do
   scenario "A user can add different handles to their account" do
     user = create(:user)
+    HandleType.create(name: 'github')
 
     visit '/'
     click_on ("Login")
@@ -18,7 +19,7 @@ feature 'Account handle addition' do
     expect(current_path).to eq('/users/1/handles/new')
 
     fill_in "handle[name]", with: "rickdeckard"
-    select "twitter", from: " user_handle_id"
+    select "github", from: "handle[handle_type_id]"
 
     click_on "Submit"
 

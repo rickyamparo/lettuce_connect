@@ -1,0 +1,2 @@
+class HandleType < ApplicationRecord
+end

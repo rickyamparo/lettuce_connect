@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102025116) do
+ActiveRecord::Schema.define(version: 20171102234022) do
 
   create_table "connections", force: :cascade do |t|
     t.integer "scanned_id"
@@ -20,11 +20,19 @@ ActiveRecord::Schema.define(version: 20171102025116) do
     t.index ["user_id"], name: "index_connections_on_user_id"
   end
 
+  create_table "handle_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "handles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+    t.integer "handle_type_id"
+    t.index ["handle_type_id"], name: "index_handles_on_handle_type_id"
     t.index ["user_id"], name: "index_handles_on_user_id"
   end
 
