@@ -4,8 +4,8 @@ feature 'Account Registration' do
   scenario "A visitor visits the home page and registers an account" do
     visit '/'
 
-    expect(page).to have_link("Register Account")
-    click_on ("Register Account")
+    expect(page).to have_link("Register")
+    click_on ("Register")
 
     expect(current_path).to eq('/users/new')
 

@@ -1,4 +1,14 @@
-<% if current_user %>
-  <h2>Hello <%= "#{current_user.first_name} #{current_user.last_name}"%> </h2>
-  <h3>Signed in under: <%= "#{current_user.email}" %>  </h3>
-<% end %>
+<div class="container">
+  <% if current_user %>
+    <h2>Hello <%= "#{current_user.first_name} #{current_user.last_name}"%> </h2>
+    <h3>Signed in under: <%= "#{current_user.email}" %>  </h3>
+  <% end %>
+  <div class="card-body">
+    <div class="card border-black" style="width: 15rem;">
+      <div class="center-block text-center">
+        <h1>Welcome to Lettuce Connect!</h1>
+      </div>
+    </div>
+  </div>
+
+</div>
