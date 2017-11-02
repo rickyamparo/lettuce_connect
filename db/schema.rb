@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102022539) do
+ActiveRecord::Schema.define(version: 20171102025116) do
+
+  create_table "connections", force: :cascade do |t|
+    t.integer "scanned_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_connections_on_user_id"
+  end
 
   create_table "handles", force: :cascade do |t|
     t.string "name"
