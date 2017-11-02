@@ -1,0 +1,9 @@
+<div class="table">
+  <% @connections.each do |connection| %>
+    <div class="connection">
+    <% connection.scanned_handles.each do |handle| %>
+      <%= handle.name %>
+    <% end %>
+  </div>
+  <% end %>
+</div>
