@@ -24,7 +24,7 @@ feature 'Account handle addition' do
     click_on "Submit"
 
     expect(current_path).to eq('/')
-    expect(page).to have_content("A handle has been added")
+    expect(page).to have_content("A new handle has been added")
 
     visit user_handles_path(user)
 

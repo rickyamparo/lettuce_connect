@@ -33,6 +33,11 @@
         <% end %>
       </ul>
   </nav>
+  <% flash.each do |type, message| %>
+        <div class="green-flash">
+          <%= message %>
+        </div>
+          <% end %>
     <%= yield %>
   </body>
 </html>
