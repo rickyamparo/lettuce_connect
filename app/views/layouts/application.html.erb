@@ -23,6 +23,9 @@
           <li class="nav-item">
             <%= link_to "Add Handle", new_user_handle_path(current_user) %>
           </li>
+          <li class="nav-item">
+            <%= link_to "Manage Handles", user_handles_path(current_user) %>
+          </li>
         <% else %>
         <li class="nav-item">
           <%= link_to "Login", login_path %>
