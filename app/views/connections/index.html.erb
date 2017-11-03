@@ -21,13 +21,12 @@
 <tbody>
 
   <% @connections.each do |connection| %>
-  <tr>
+  <tr class="connection">
     <th><%= connection.scanned_user.first_name %></th>
     <th><%= connection.scanned_user.last_name %></th>
     <th><%= connection.github_handle.name%></th>
     <th><%= connection.twitter_handle.name%></th>
     <th><%= connection.linkedin_handle.name%></th>
-
     <% end %>
   </tr>
 
