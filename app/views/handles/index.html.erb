@@ -1,3 +1,18 @@
-<% @handles.each do |handle| %>
-  <%= handle.name %>
-<% end %>
+<div class="row">
+
+  <div class="col-md-3">
+  </div>
+
+  <div class="col-md-6">
+
+    <% @handles.each do |handle| %>
+    <p class="text-center">
+      <%= handle.handle_type.name %>:  <%= handle.name %><br> <br>
+    </p>
+    <% end %>
+
+  </div>
+
+  <div class="col-md-3">
+  </div>
+</div>
