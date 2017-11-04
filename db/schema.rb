@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102234022) do
+ActiveRecord::Schema.define(version: 20171104201643) do
 
   create_table "connections", force: :cascade do |t|
     t.integer "scanned_id"
@@ -43,6 +43,10 @@ ActiveRecord::Schema.define(version: 20171102234022) do
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "screen_name"
+    t.string "uid"
+    t.string "oauth_token"
+    t.string "oauth_token_secret"
   end
 
 end

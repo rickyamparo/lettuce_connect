@@ -14,6 +14,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def oauth_login
+    User.from_omniauth(request.env["omniauth.auth"])
+  end
+
   def destroy
     session.clear
     redirect_to root_path
