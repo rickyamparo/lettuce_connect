@@ -26,4 +26,16 @@ describe 'instance methods' do
 
     expect(conn.github_handle.name).to eq(user_2_handle.name)
   end
+
+  it "can return twitter handle" do
+    user = create(:user)
+    user_2 = create(:user, first_name: "Richard", email: "blade@runner2.com")
+
+    handle_type = HandleType.create(id: 2, name: "twitter")
+    user_2_handle = Handle.create(name: "richarddeckard", user: user_2, handle_type: handle_type)
+
+    conn = Connection.create(user: user, scanned_id: user_2.id)
+
+    expect(conn.twitter_handle.name).to eq(user_2_handle.name)
+  end
 end
