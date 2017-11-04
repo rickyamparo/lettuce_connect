@@ -11,6 +11,8 @@
       <% if current_user %>
         <h2>Hello <%= "#{current_user.first_name} #{current_user.last_name}"%> </h2>
         <h3>Signed in under: <%= "#{current_user.email}" %>  </h3>
+      <% else %>
+        <%= link_to "Sign in with Github", github_login_path %>
       <% end %>
   </div>
       <div class="center-block text-center">
