@@ -1,6 +1,7 @@
 class Connection < ApplicationRecord
   belongs_to :user
 
+  validates :scanned_id, presence: true 
   # def scanned_handles
   #   Handle.where(user_id: self.scanned_id)
   # end
