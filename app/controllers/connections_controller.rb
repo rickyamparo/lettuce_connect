@@ -16,14 +16,24 @@ class ConnectionsController < ApplicationController
       redirect_to connections_path
     else
       flash[:message] = "That was not a valid lettuce id"
-      render :new
+      redirect_to new_connection_path
     end
   end
 
   private
 
-  def connection_params
-    params.require(:connection).permit(:scanned_id, :user_id)
-  end
+    # def scanned_id_validation(scanned_id)
+    #   if User.find(scanned_id).nil?
+    #     scanned_id = nil
+    #     connection_params[:scanned_id] = nil
+    #   end
+    # end
+
+    def connection_params
+      if User.exists?(params[:connection][:scanned_id]) == false
+        params[:connection][:scanned_id] = nil
+      end
+      params.require(:connection).permit(:scanned_id, :user_id)
+    end
 
 end
