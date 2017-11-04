@@ -32,6 +32,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rubycritic'
 gem 'brakeman'
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'omniauth'
+gem 'omniauth-github'
+gem 'figaro'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
