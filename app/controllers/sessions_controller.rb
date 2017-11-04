@@ -15,7 +15,13 @@ class SessionsController < ApplicationController
   end
 
   def oauth_login
-    User.from_omniauth(request.env["omniauth.auth"])
+    if user = User.from_omniauth(request.env["omniauth.auth"])
+      @user = user
+      login_successful
+    else
+      flash[:message] = "Something went wrong, please try to sign in again"
+      redirect_to login_path
+    end
   end
 
   def destroy
