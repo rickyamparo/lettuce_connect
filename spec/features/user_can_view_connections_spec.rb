@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'Account connections' do
   scenario "A user can view all of their connections" do
     user = create(:user)
-    user_2 = create(:user, first_name: "Richard")
+    user_2 = create(:user, first_name: "Richard", email: "blade@runner2.com")
 
     github = HandleType.create(name: "Github")
     twitter = HandleType.create(name: "Twitter")
