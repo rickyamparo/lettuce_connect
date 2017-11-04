@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is the This project is the personal project of Ricky Amparo.
+Ricky Amparo is a Turing School student and is currently in Mod3 of the Backend program.
 
-Things you may want to cover:
+# Goal
 
-* Ruby version
+Lettuce Connect is a digital business card aimed at organizing the connections one makes at a networking event.
 
-* System dependencies
+# Technology
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Lettuce Connect is built primarily on Ruby on Rails 5. The current front end styling is built by Bootstrap 4. 
