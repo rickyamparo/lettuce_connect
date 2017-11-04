@@ -29,8 +29,12 @@ class ConnectionsController < ApplicationController
     #   end
     # end
 
+    def scanned_id_params
+      params[:connection][:scanned_id]
+    end
+
     def connection_params
-      if User.exists?(params[:connection][:scanned_id]) == false
+      if User.exists?(scanned_id_params) == false
         params[:connection][:scanned_id] = nil
       end
       params.require(:connection).permit(:scanned_id, :user_id)
