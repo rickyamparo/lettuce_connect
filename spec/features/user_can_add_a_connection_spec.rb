@@ -13,7 +13,11 @@ feature "Add a Connection" do
     Handle.create(user: user_2, name: 'faketwitter2', handle_type: twitter)
     Handle.create(user: user_2, name: 'fakelinkedin2', handle_type: linkedin)
 
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+    visit '/'
+    click_on ("Login")
+    fill_in "session[email]", with: "blade@runner.com"
+    fill_in "session[password]", with: "replicants"
+    click_on ("Submit")
 
     visit'/connections'
 
@@ -25,6 +29,7 @@ feature "Add a Connection" do
     click_on "Submit Connection"
 
     expect(current_path).to eq('/connections')
+    expect(page).to have_content("You've added a new connection!")
     expect(page).to have_content(user_2.first_name)
     expect(page).to have_content(user_2.last_name)
     expect(page).to have_content(user_2.handles[0].name)

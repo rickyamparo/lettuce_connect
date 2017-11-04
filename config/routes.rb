@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   get '/auth/github', to: 'sessions#oauth_login', as: 'github_login'
   get '/auth/github/callback', :to => 'sessions#oauth_login'
 
-  resources :connections, only: [:index, :new]
+  resources :connections, only: [:index, :new, :create]
 end
