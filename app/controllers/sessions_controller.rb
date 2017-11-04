@@ -29,12 +29,12 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-    private
+  private
 
-  def login_successful
-    session[:user_id] = @user.id
-    flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
-    redirect_to root_path
-  end
+    def login_successful
+      session[:user_id] = @user.id
+      flash[:notice] = "Logged in as #{@user.first_name} #{@user.last_name}"
+      redirect_to root_path
+    end
 
 end

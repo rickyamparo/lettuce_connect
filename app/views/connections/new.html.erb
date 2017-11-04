@@ -1,0 +1,9 @@
+<div class="form">
+  <%= form_for @connection do |f| %>
+    <%= f.label :scanned_id %>
+    <%= f.number_field :scanned_id %>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.submit "Submit Connection" %>
+  <% end %>
+</div>
