@@ -25,7 +25,7 @@
 
     <% @connections.each do |connection| %>
     <tr class="connection">
-      <th><%= connection.scanned_user.first_name %></th>
+      <th><%= link_to connection.scanned_user.first_name, connection_path(connection) %></th>
       <th><%= connection.scanned_user.last_name %></th>
       <th><%= connection.github_handle.name%></th>
       <th><%= connection.twitter_handle.name%></th>

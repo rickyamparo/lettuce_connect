@@ -5,6 +5,10 @@ class ConnectionsController < ApplicationController
     @connections = @user.connections
   end
 
+  def show
+    @connection = Connection.find(params[:id])
+  end
+
   def new
     @connection = Connection.new
   end
