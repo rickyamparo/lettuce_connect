@@ -20,6 +20,12 @@ class ConnectionsController < ApplicationController
     end
   end
 
+  def destroy
+    connection = Connection.find(params[:id])
+    connection.destroy
+    redirect_to connections_path
+  end
+
   private
 
     # def scanned_id_validation(scanned_id)
