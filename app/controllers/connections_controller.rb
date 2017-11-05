@@ -22,6 +22,7 @@ class ConnectionsController < ApplicationController
 
   def destroy
     connection = Connection.find(params[:id])
+    flash[:message] = "You have deleted your connection with #{connection.scanned_user.first_name}"
     connection.destroy
     redirect_to connections_path
   end

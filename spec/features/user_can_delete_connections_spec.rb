@@ -14,7 +14,7 @@ feature "Delete a Connection" do
     Handle.create(user: user_2, name: 'fakelinkedin2', handle_type: linkedin)
 
     Connection.create(user: user, scanned_id: user_2.id)
-    
+
     visit '/'
     click_on ("Login")
     fill_in "session[email]", with: "blade@runner.com"
@@ -33,7 +33,7 @@ feature "Delete a Connection" do
 
     expect(current_path).to eq('/connections')
 
-    expect(page).to_not have_content("Richard")
+    expect(page).to have_content("You have deleted your connection with Richard")
     expect(page).to_not have_content("fakegithub2")
     expect(page).to_not have_content("faketwitter2")
     expect(page).to_not have_content("fakelinkedin2")
