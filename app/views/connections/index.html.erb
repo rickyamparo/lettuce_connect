@@ -18,6 +18,7 @@
         <th scope="col">Github Handle</th>
         <th scope="col">Twitter Handle</th>
         <th scope="col">LinkedIn Handle</th>
+        <th scope="col"></th>
       </tr>
     </thead>
   <tbody>
@@ -29,6 +30,7 @@
       <th><%= connection.github_handle.name%></th>
       <th><%= connection.twitter_handle.name%></th>
       <th><%= connection.linkedin_handle.name%></th>
+      <th> <%= link_to "Delete Connection", connection_path(connection), method: :delete %>  </th>
       <% end %>
     </tr>
 
