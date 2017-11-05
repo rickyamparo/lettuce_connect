@@ -30,5 +30,7 @@ feature "View a Connection" do
     expect(page).to have_content("fakegithub2")
     expect(page).to have_content("faketwitter2")
     expect(page).to have_content("fakelinkedin2")
+
+    expect(page).to have_link("Delete Connection")
   end
 end

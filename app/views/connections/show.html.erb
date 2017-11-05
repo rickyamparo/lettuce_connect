@@ -3,3 +3,5 @@
 <p><%= @connection.github_handle.name %></p><br>
 <p><%= @connection.twitter_handle.name %></p><br>
 <p><%= @connection.linkedin_handle.name %></p><br>
+
+<%= link_to "Delete Connection", connection_path(@connection), method: :delete %>
