@@ -7,6 +7,12 @@ class ConnectionsController < ApplicationController
 
   def show
     @connection = Connection.find(params[:id])
+    @conn = Faraday.new(:url => "https://api.github.com/") do |faraday|
+      faraday.adapter Faraday.default_adapter
+    end
+    response = @conn.get("/users/#{@connection.github_handle.name}/events/public")
+    parsed_response = JSON.parse(response.body, symbolize_names: true)
+    binding.pry
   end
 
   def new

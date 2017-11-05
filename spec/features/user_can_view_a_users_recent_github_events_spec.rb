@@ -9,9 +9,11 @@ feature 'View a Users github events' do
     twitter = HandleType.create(name: "Twitter")
     linkedin = HandleType.create(name: "LinkedIn")
 
-    Handle.create(user: user_2, name: 'fakegithub2', handle_type: github)
+    Handle.create(user: user_2, name: 'rickyamparo', handle_type: github)
     Handle.create(user: user_2, name: 'faketwitter2', handle_type: twitter)
     Handle.create(user: user_2, name: 'fakelinkedin2', handle_type: linkedin)
+
+    Connection.create(user: user, scanned_id: user_2.id)
 
     visit '/'
     click_on ("Login")
