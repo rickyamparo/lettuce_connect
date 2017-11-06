@@ -1,6 +1,14 @@
 <p><%= @connection.scanned_user.first_name %></p><br>
 <p><%= @connection.scanned_user.last_name %></p><br>
-<p><%= @connection.github_handle.name %></p><br>
+<div class="github-handle"><%= @connection.github_handle.name %>
+  <% @github_events.each  do |github_event|%>
+  <div class="github-event">
+  Event Type: <%= github_event.type %>
+  Repo: <%= github_event.repo %>
+  Date of Event: <%= github_event.date %>
+</div>
+<% end  %>
+</div><br>
 <p><%= @connection.twitter_handle.name %></p><br>
 <p><%= @connection.linkedin_handle.name %></p><br>
 

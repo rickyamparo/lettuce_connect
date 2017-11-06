@@ -24,8 +24,8 @@ feature 'View a Users github events' do
     visit'/connections'
     click_on("Richard")
 
-    within first('.github-handle') do
-      expect(page).to have_css('.github-event')
+    within ('.github-handle') do
+      expect(page).to have_css('.github-event', count: 3)
     end
   end
 end
