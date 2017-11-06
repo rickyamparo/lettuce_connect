@@ -8,7 +8,7 @@ class ConnectionsController < ApplicationController
   def show
     @connection = Connection.find(params[:id])
     raw_github_events = GithubService.recent_events(@connection)
-    @github_events = GithubEvent.recent_events(parsed_response.first(3))
+    @github_events = GithubEvent.recent_events(raw_github_events.first(3))
   end
 
   def new
@@ -34,13 +34,6 @@ class ConnectionsController < ApplicationController
   end
 
   private
-
-    # def scanned_id_validation(scanned_id)
-    #   if User.find(scanned_id).nil?
-    #     scanned_id = nil
-    #     connection_params[:scanned_id] = nil
-    #   end
-    # end
 
     def scanned_id_params
       params[:connection][:scanned_id]
