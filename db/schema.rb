@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20171104201643) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "connections", force: :cascade do |t|
     t.integer "scanned_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_connections_on_user_id"
   end
 
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 20171104201643) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "handle_type_id"
+    t.bigint "user_id"
+    t.bigint "handle_type_id"
     t.index ["handle_type_id"], name: "index_handles_on_handle_type_id"
     t.index ["user_id"], name: "index_handles_on_user_id"
   end
@@ -49,4 +52,7 @@ ActiveRecord::Schema.define(version: 20171104201643) do
     t.string "oauth_token_secret"
   end
 
+  add_foreign_key "connections", "users"
+  add_foreign_key "handles", "handle_types"
+  add_foreign_key "handles", "users"
 end
