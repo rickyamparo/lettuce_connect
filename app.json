@@ -1,0 +1,17 @@
+{
+  "name": "lettuce_connect",
+  "scripts": {
+  },
+  "env": {
+    "GITHUB-KEY": "aab91c9b110ddc4142b4",
+    "GITHUB-SECRET": "45155be05576cbee3743b53f95abf07877c64f82"
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
