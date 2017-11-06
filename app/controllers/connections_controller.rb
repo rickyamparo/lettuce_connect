@@ -12,6 +12,8 @@ class ConnectionsController < ApplicationController
     end
     response = @conn.get("/users/#{@connection.github_handle.name}/events/public")
     parsed_response = JSON.parse(response.body, symbolize_names: true)
+    binding.pry
+    @github_events = 
   end
 
   def new
