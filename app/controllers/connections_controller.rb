@@ -7,6 +7,8 @@ class ConnectionsController < ApplicationController
 
   def show
     @connection = Connection.find(params[:id])
+    raw_recent_tweet = TwitterService.recent_tweet(@connection)
+    @recent_tweet = Tweet.recent_tweet(raw_recent_tweet)
     raw_github_events = GithubService.recent_events(@connection)
     @github_events = GithubEvent.recent_events(raw_github_events.first(3))
   end
