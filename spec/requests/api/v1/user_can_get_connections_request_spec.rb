@@ -52,4 +52,17 @@ describe "Connections API" do
     expect(connection["id"]).to eq(1)
     expect(connection["scanned_id"]).to eq(2)
   end
+
+  scenario "a user requests connections a user has made" do
+    get '/api/v1/connections/user_connections/1'
+
+    expect(response).to be_success
+    expect(response.status).to eq(200)
+
+    connections = JSON.parse(response.body)
+
+    expect(connections.count).to eq(3)
+    expect(connections.first["id"]).to eq(1)
+    expect(connections.first["scanned_id"]).to eq(2)
+  end
 end
