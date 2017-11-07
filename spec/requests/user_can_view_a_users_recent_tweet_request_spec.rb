@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe 'View a Users recent tweet' do
-  xscenario "A user goes to a connection and views recent tweet by that user" do
+xdescribe 'View a Users recent tweet' do
+  scenario "A user goes to a connection and views recent tweet by that user" do
     user = create(:user)
     user_2 = create(:user, first_name: "Richard", email: "blade@runner2.com")
 
