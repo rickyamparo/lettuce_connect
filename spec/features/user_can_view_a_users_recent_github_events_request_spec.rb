@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-xfeature "View a Connection" do
-  it "A user can view a single connection" do
+feature 'View a Users github events' do
+  it "A user goes to a connection and views github info" do
     user = create(:user)
     user_2 = create(:user, first_name: "Richard", email: "blade@runner2.com")
 
@@ -22,15 +22,10 @@ xfeature "View a Connection" do
     click_on ("Submit")
 
     visit'/connections'
-
-    expect(page).to have_link("Richard")
     click_on("Richard")
 
-    expect(current_path).to eq('/connections/1')
-    expect(page).to have_content("rickyamparo")
-    expect(page).to have_content("faketwitter2")
-    expect(page).to have_content("fakelinkedin2")
-
-    expect(page).to have_link("Delete Connection")
+    within ('.github-handle') do
+      expect(page).to have_css('.github-event', count: 3)
+    end
   end
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-xfeature 'View a Users github events' do
-  it "A user goes to a connection and views github info" do
+xdescribe 'View a Users recent tweet' do
+  it "A user goes to a connection and views recent tweet by that user" do
     user = create(:user)
     user_2 = create(:user, first_name: "Richard", email: "blade@runner2.com")
 
@@ -10,7 +10,7 @@ xfeature 'View a Users github events' do
     linkedin = HandleType.create(name: "LinkedIn")
 
     Handle.create(user: user_2, name: 'rickyamparo', handle_type: github)
-    Handle.create(user: user_2, name: 'faketwitter2', handle_type: twitter)
+    Handle.create(user: user_2, name: 'rickyaceamparo', handle_type: twitter)
     Handle.create(user: user_2, name: 'fakelinkedin2', handle_type: linkedin)
 
     Connection.create(user: user, scanned_id: user_2.id)
@@ -24,8 +24,8 @@ xfeature 'View a Users github events' do
     visit'/connections'
     click_on("Richard")
 
-    within ('.github-handle') do
-      expect(page).to have_css('.github-event', count: 3)
+    within ('.twitter-handle') do
+      expect(page).to have_css('.twitter-tweet')
     end
   end
 end
