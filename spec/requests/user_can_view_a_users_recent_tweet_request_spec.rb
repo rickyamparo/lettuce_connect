@@ -25,7 +25,7 @@ feature 'View a Users recent tweet' do
     click_on("Richard")
 
     within ('.twitter-handle') do
-      expect(page).to have_css('.twitter-event')
+      expect(page).to have_css('.twitter-tweet')
     end
   end
 end
