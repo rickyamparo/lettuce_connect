@@ -42,14 +42,14 @@ describe "Connections API" do
   end
 
   scenario "a user request 1 connection made" do
-    get 'api/v1/connections/1'
+    get '/api/v1/connections/1'
 
     expect(response).to be_success
     expect(response.status).to eq(200)
 
     connection = JSON.parse(response.body)
 
-    expect(conenction["id"]).to eq(1)
-    expect(connections.first["scanned_id"]).to eq(2)
+    expect(connection["id"]).to eq(1)
+    expect(connection["scanned_id"]).to eq(2)
   end
 end

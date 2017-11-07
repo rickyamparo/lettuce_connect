@@ -4,4 +4,7 @@ class Api::V1::ConnectionsController < ApplicationController
     render json: Connection.all
   end
 
+  def show
+    render json: Connection.find(params[:id])
+  end
 end
