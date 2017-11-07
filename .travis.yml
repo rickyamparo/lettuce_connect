@@ -7,6 +7,8 @@ script:
 - bundle exec rspec
 - bundle exec brakeman --exit-on-warn --quiet -f plain
 - bundle exec rubycritic app lib config --minimum-score 95 --mode-ci --no-browser
+services:
+  - GithubService
 before_script:
 - bundle exec rake db:create
 - RAILS_ENV=test bundle exec rake db:migrate --trace
