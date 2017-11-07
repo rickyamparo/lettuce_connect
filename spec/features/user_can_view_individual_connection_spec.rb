@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-xdescribe 'View a Users recent tweet' do
-  scenario "A user goes to a connection and views recent tweet by that user" do
+feature "View a Connection" do
+  it "A user can view a single connection" do
     user = create(:user)
     user_2 = create(:user, first_name: "Richard", email: "blade@runner2.com")
 
@@ -10,7 +10,7 @@ xdescribe 'View a Users recent tweet' do
     linkedin = HandleType.create(name: "LinkedIn")
 
     Handle.create(user: user_2, name: 'rickyamparo', handle_type: github)
-    Handle.create(user: user_2, name: 'rickyaceamparo', handle_type: twitter)
+    Handle.create(user: user_2, name: 'faketwitter2', handle_type: twitter)
     Handle.create(user: user_2, name: 'fakelinkedin2', handle_type: linkedin)
 
     Connection.create(user: user, scanned_id: user_2.id)
@@ -22,10 +22,15 @@ xdescribe 'View a Users recent tweet' do
     click_on ("Submit")
 
     visit'/connections'
+
+    expect(page).to have_link("Richard")
     click_on("Richard")
 
-    within ('.twitter-handle') do
-      expect(page).to have_css('.twitter-tweet')
-    end
+    expect(current_path).to eq('/connections/1')
+    expect(page).to have_content("rickyamparo")
+    expect(page).to have_content("faketwitter2")
+    expect(page).to have_content("fakelinkedin2")
+
+    expect(page).to have_link("Delete Connection")
   end
 end
