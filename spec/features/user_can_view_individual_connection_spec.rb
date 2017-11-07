@@ -10,7 +10,7 @@ feature "View a Connection" do
     linkedin = HandleType.create(name: "LinkedIn")
 
     Handle.create(user: user_2, name: 'rickyamparo', handle_type: github)
-    Handle.create(user: user_2, name: 'faketwitter2', handle_type: twitter)
+    Handle.create(user: user_2, name: 'rickyaceamparo', handle_type: twitter)
     Handle.create(user: user_2, name: 'fakelinkedin2', handle_type: linkedin)
 
     Connection.create(user: user, scanned_id: user_2.id)
@@ -28,7 +28,7 @@ feature "View a Connection" do
 
     expect(current_path).to eq('/connections/1')
     expect(page).to have_content("rickyamparo")
-    expect(page).to have_content("faketwitter2")
+    expect(page).to have_content("rickyaceamparo")
     expect(page).to have_content("fakelinkedin2")
 
     expect(page).to have_link("Delete Connection")
