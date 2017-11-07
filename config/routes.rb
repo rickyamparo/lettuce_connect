@@ -13,4 +13,10 @@ Rails.application.routes.draw do
   get '/auth/github/callback', :to => 'sessions#oauth_login'
 
   resources :connections, only: [:index, :new, :create, :destroy, :show]
+
+  namespace :api do
+    namespace :v1 do
+      resources :connections, only: [:index]
+    end
+  end
 end

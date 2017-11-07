@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Connections API" do
-  scenario "a user requests a count of all connections made" do
+  scenario "a user requests all connections made" do
     user = create(:user)
     user_2 = create(:user, first_name: "Richard1", email: "blade@runner2.com")
     user_3 = create(:user, first_name: "Richard2", email: "blade@runner3.com")
