@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "View a Connection" do
+describe "View a Connection" do
   scenario "A user can view a single connection" do
     user = create(:user)
     user_2 = create(:user, first_name: "Richard", email: "blade@runner2.com")

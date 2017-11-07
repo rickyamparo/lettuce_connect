@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'View a Users github events' do
+describe 'View a Users github events' do
   scenario "A user goes to a connection and views github info" do
     user = create(:user)
     user_2 = create(:user, first_name: "Richard", email: "blade@runner2.com")
