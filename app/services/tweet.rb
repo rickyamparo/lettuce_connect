@@ -3,6 +3,7 @@ class Tweet
   attr_accessor :text, :date, :likes, :attributes
 
   def initialize(attributes = {})
+    binding.pry
     @attributes = valid_attributes(attributes)
     @text = @attributes[:text]
     @date = Time.parse(@attributes[:created_at]).to_date.to_s
