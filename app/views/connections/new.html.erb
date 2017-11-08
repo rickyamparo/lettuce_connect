@@ -1,9 +1,22 @@
-<div class="form">
-  <%= form_for @connection do |f| %>
-    <%= f.label :scanned_id %>
-    <%= f.number_field :scanned_id %>
+<div class="row">
+  <div class="center-block">
+      <div class="container-fluid">
+        <div class="justify-content-center">
+          <div class="col-sm-12 text-center">
+            <form role="form-inline">
+              <%= form_for @connection do |f| %>
+                <br>
+                <div class="form-group">
+                  <label for="ScannedUserId">Scanned User's ID</label>
+                  <%= f.number_field :scanned_id, :class => 'form-control'%>
+                </div>
 
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.submit "Submit Connection" %>
-  <% end %>
+                <%= f.hidden_field :user_id, :value => current_user.id %>
+                  <button type="submit" class="btn btn-success">Submit Connection</button>
+              <% end %>
+            </div>
+          </form>
+        </div>
+      </div>
+  </div>
 </div>

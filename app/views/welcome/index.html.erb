@@ -1,26 +1,19 @@
-<div class="container">
 <div class="row">
-
-  <div class="col-md-3">
-
-  </div>
-
-  <div class="col-md-6">
-
-    <div class="center-block text-center">
-      <% if current_user %>
-        <h2>Hello <%= "#{current_user.first_name} #{current_user.last_name}"%> </h2>
-        <h3>Signed in under: <%= "#{current_user.email}" %>  </h3>
-      <% else %>
-        <%= link_to "Sign in with Github", github_login_path %>
-      <% end %>
-  </div>
-      <div class="center-block text-center">
-        <h1>Welcome to Lettuce Connect!</h1>
+  <div class="center-block">
+      <div class="container-fluid">
+        <div class="justify-content-center">
+          <div class="col-sm-12 text-center">
+            <h1>Welcome to Lettuce Connect!</h1>
+            <% if current_user %>
+              <h2>Hello <%= "#{current_user.first_name} #{current_user.last_name}"%> </h2>
+              <h3>Your Lettuce ID is: <%="#{current_user.id}" %>  </h3>
+            <% else %>
+              <h2>If this is your first time visiting lettuce connect,
+                 please use the register link to sign up</h2>
+              <h2><%= link_to "Sign in with Github", github_login_path %></h2>
+            <% end %>
+          </div>
       </div>
     </div>
-  <div class="col-md-3">
-
   </div>
-</div>
 </div>

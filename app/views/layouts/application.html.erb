@@ -10,37 +10,48 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="navbar-brand logo"> <%= link_to "Lettuce Connect", root_path %> </div>
-      <ul class="nav mr-auto">
+    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-center">
+      <ul class="nav justify-content-center text-center">
+        <li class="nav-item">
+        <div class="nav-link badge badge-light"><%= link_to "Home", root_path%></div>
+        </li>
       <% if current_user %>
           <li class="nav-item">
-            <%= link_to "Logout", logout_path, method: :delete %>
+          <div class="nav-link badge badge-light"><%= link_to "Logout", logout_path, method: :delete %></div>
           </li>
           <li class="nav-item">
-            <%= link_to "Connections", connections_path %>
+            <div class="nav-link badge badge-light"><%= link_to "Connections", connections_path %></div>
           </li>
           <li class="nav-item">
-            <%= link_to "Add Handle", new_user_handle_path(current_user) %>
+            <div class="nav-link badge badge-light"><%= link_to "Add Handle", new_user_handle_path(current_user) %></div>
           </li>
           <li class="nav-item">
-            <%= link_to "Manage Handles", user_handles_path(current_user) %>
+            <div class="nav-link badge badge-light"><%= link_to "Manage Handles", user_handles_path(current_user) %></div>
           </li>
         <% else %>
         <li class="nav-item">
-          <%= link_to "Login", login_path %>
+          <div class="nav-link badge badge-light"><%= link_to "Login", login_path %> </div>
         </li>
         <li class="nav-item">
-          <%= link_to "Register", new_user_path %>
+          <div class="nav-link badge badge-light"><%= link_to "Register", new_user_path %> </div>
         </li>
         <% end %>
       </ul>
   </nav>
+  <% if flash.count > 0  %>
+    <div class="center-block" style= "width: 15rem;">
+    <div class="alert alert-primary alert-dismissable" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+  <% end %>
   <% flash.each do |type, message| %>
-        <div class="green-flash">
-          <%= message %>
-        </div>
-          <% end %>
+    <%= content_tag :alert, raw(message), class: type %>
+  <% end %>
+    </div>
+    </div>
     <%= yield %>
+  </div>
   </body>
 </html>

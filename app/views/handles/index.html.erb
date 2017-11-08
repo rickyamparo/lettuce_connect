@@ -1,18 +1,17 @@
 <div class="row">
-
-  <div class="col-md-3">
-  </div>
-
-  <div class="col-md-6">
-
-    <% @handles.each do |handle| %>
-    <p class="text-center">
-      <%= handle.handle_type.name %>:  <%= handle.name %><br> <br>
-    </p>
-    <% end %>
-
-  </div>
-
-  <div class="col-md-3">
+  <div class="center-block">
+      <div class="container-fluid">
+        <div class="justify-content-center">
+          <div class="col-sm-12">
+            <br>
+          <% @handles.each do |handle| %>
+            <div class="card" style="width: 20rem; height: 10rem;" >
+              <div class="card-header font-weight-bold"><%= handle.handle_type.name %></div>
+              <div class="card-body text-center"><%= handle.name %></div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
