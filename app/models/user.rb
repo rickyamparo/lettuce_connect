@@ -15,4 +15,8 @@ class User < ApplicationRecord
       new_user.oauth_token        = auth_info[:credentials][:token]
     end
   end
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end

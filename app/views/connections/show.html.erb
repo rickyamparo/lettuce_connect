@@ -1,23 +1,56 @@
-<p><%= @connection.scanned_user.first_name %></p><br>
-<p><%= @connection.scanned_user.last_name %></p><br>
-<div class="github-handle"><%= @connection.github_handle.name %>
-  <% @github_events.each  do |github_event|%>
-  <div class="github-event">
-  Event Type: <%= github_event.type %>
-  Repo: <%= github_event.repo %>
-  Date of Event: <%= github_event.date %>
+<div class="row">
+  <div class="center-block">
+      <div class="container-fluid">
+        <div class="justify-content-center">
+          <div class="col-sm-12 ">
+<br>
+<div class="card" style="width: 50rem; ">
+  <div class="card-header font-weight-bold text-justify bg-info">
+    <%=@connection.scanned_user.full_name %>
+  </div>
+<div class="github-handle">
+  <div class="card-header">
+    Github Handle: <%= @connection.github_handle.name %>
+  </div>
+  <div class="row">
+  <% @github_events.each do |github_event|%>
+    <div class="github-event col-sm-4">
+      <ul>
+        <li>Event Type: <%= github_event.type %></li>
+        <li>Repo: <%= github_event.repo %></li>
+        <li>Date of Event: <%= github_event.date %></li>
+      </ul>
+  </div>
+  <% end  %>
 </div>
-<% end  %>
 </div><br>
 
-<div class="twitter-handle">
-  <%= @connection.twitter_handle.name %><br>
-  <div class="twitter-tweet">
-    Tweet: <%= @recent_tweet.text %>
-    Date: <%= @recent_tweet %>
+  <div class="twitter-handle">
+    <div class="card-header">
+    Twitter Handle: <%= @connection.twitter_handle.name %><br>
+  </div>
+  </div>
+    <div class="twitter-tweet col-sm-12">
+      Most Recent Tweet: <%= @recent_tweet.text %> <br><br>
+      Date: <%= @recent_tweet.date %>
+  </div>
+  <br>
+
+<div class="linkedin-handle">
+  <div class="card-header">
+    <%= @connection.linkedin_handle.name %>
   </div>
 </div>
 
-<p><%= @connection.linkedin_handle.name %></p><br>
+<br><br>
 
-<%= link_to "Delete Connection", connection_path(@connection), method: :delete %>
+<div class="text-right">
+  LinkedIn Handle:<%= link_to "Delete Connection", connection_path(@connection), method: :delete %>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
