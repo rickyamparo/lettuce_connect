@@ -10,7 +10,7 @@
   </div>
 <div class="github-handle">
   <div class="card-header">
-    Github Handle: <%= @connection.github_handle.name %>
+    Github Handle: <%= link_to @connection.github_handle.name, "http://www.github.com/#{@connection.github_handle.name}" %>
   </div>
   <div class="row">
   <% @github_events.each do |github_event|%>
@@ -27,7 +27,7 @@
 
   <div class="twitter-handle">
     <div class="card-header">
-    Twitter Handle: <%= @connection.twitter_handle.name %><br>
+    Twitter Handle: <%= link_to @connection.twitter_handle.name, "http://www.twitter.com/#{@connection.twitter_handle.name}" %><br>
   </div>
   </div>
     <div class="twitter-tweet col-sm-12">
@@ -38,14 +38,15 @@
 
 <div class="linkedin-handle">
   <div class="card-header">
-    <%= @connection.linkedin_handle.name %>
+    LinkedIn Handle: <%= link_to @connection.linkedin_handle.name, "http://www.linkedin.com/in/#{@connection.linkedin_handle.name}" %>
   </div>
 </div>
 
 <br><br>
 
+
 <div class="text-right">
-  LinkedIn Handle:<%= link_to "Delete Connection", connection_path(@connection), method: :delete %>
+  <%= link_to "Delete Connection", connection_path(@connection), method: :delete %>
 </div>
 
 </div>
