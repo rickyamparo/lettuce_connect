@@ -12,7 +12,6 @@ feature "User can view basic github information" do
     expect(current_path).to eq("/")
     expect(page).to_not have_content("Sign in with Github")
     expect(page).to have_content('Ricky Amparo')
-    expect(page).to have_content('rickyamparo@gmail.com')
   end
 
 end

@@ -7,7 +7,6 @@ feature 'Edit Account and Business Card' do
 
     visit '/'
     expect(page).to have_content("Rick Deckard")
-    expect(page).to have_content("blade@runner.com")
 
     visit edit_user_path(user)
 
@@ -18,6 +17,5 @@ feature 'Edit Account and Business Card' do
 
     expect(current_path).to eq('/')
     expect(page).to have_content("Richard Deckard")
-    expect(page).to have_content("blade@runner.com")
   end
 end
