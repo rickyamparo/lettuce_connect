@@ -8,11 +8,21 @@ class Connection < ApplicationRecord
   end
 
   def github_handle
-    Handle.find_by(user_id: self.scanned_id, handle_type_id: 1)
+    handle = Handle.find_by(user_id: self.scanned_id, handle_type_id: 1)
+    if handle.nil?
+      Handle.new
+    else
+      handle
+    end
   end
 
   def twitter_handle
-    Handle.find_by(user_id: self.scanned_id, handle_type_id: 2)
+    handle = Handle.find_by(user_id: self.scanned_id, handle_type_id: 2)
+    if handle.nil?
+      Handle.new
+    else
+      handle
+    end
   end
 
   def linkedin_handle
