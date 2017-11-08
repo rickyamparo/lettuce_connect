@@ -10,11 +10,9 @@
                   <label for="ScannedUserId">Scanned User's ID</label>
                   <%= f.number_field :scanned_id, :class => 'form-control'%>
                 </div>
-                
+
                 <%= f.hidden_field :user_id, :value => current_user.id %>
-                <div class="badge badge-success">
-                  <%= f.submit "Submit Connection", :class => 'form-control' %>
-                </div>
+                  <button type="submit" class="btn btn-success">Submit Connection</button>
               <% end %>
             </div>
           </form>
