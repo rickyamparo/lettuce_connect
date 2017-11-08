@@ -17,5 +17,6 @@ feature 'Account Registration' do
     click_on "Submit"
 
     expect(current_path).to eq('/')
+    expect(User.count).to eq(1)
   end
 end
