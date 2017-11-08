@@ -27,7 +27,7 @@ feature "Handle name link" do
     expect(page).to have_link("rickyamparo")
     expect(page).to have_link("rickyaceamparo")
 
-    click_on("rickyamparo")
-    expect(current_path).to be('github')
+    href = "http://www.github.com/rickyamparo"
+    expect(find_link('rickyamparo')[:href]).to eq(href)
   end
 end
