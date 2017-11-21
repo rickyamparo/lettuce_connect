@@ -1,16 +1,20 @@
 language: ruby
 rvm:
-- '2.3.3'
+- 2.3.3
 env:
 - DB=postgresql
 script:
+- export RAILS_ENV=test
 - bundle exec rspec
 - bundle exec brakeman --exit-on-warn --quiet -f plain
 - bundle exec rubycritic app lib config --minimum-score 95 --mode-ci --no-browser
 services:
-  - GithubService
+- GithubService
 before_script:
 - bundle exec rake db:create
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
-bundler_args: --without production
+bundler_args: "--without production"
+before_install:
+- openssl aes-256-cbc -K $encrypted_48953ad99598_key -iv $encrypted_48953ad99598_iv
+  -in application.yml.enc -out config/application.yml -d
